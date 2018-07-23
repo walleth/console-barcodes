@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/walleth/console-barcodes.svg)](https://jitpack.io/#walleth/console-barcodes)
+
 What?
 =====
 
@@ -12,6 +14,33 @@ How?
 ====
 
 It uses [zxing](https://github.com/zxing/zxing) and is inspired by [qrcode-terminal](https://github.com/gtanner/qrcode-terminal)
+
+Usage
+=====
+
+If not already done add the jitpack repository:
+
+```groovy
+allprojects {
+   repositories {
+      maven { url 'https://jitpack.io' }
+   }
+}
+```
+
+Then add console-barcodes:lib as a dependency:
+
+```groovy
+dependencies {
+   implementation 'com.github.walleth.console-barcodes:lib:<version>'
+}
+```
+
+Now you can use the library:
+
+```kotlin
+ printQR( "Hello world" )
+```
 
 License
 =======
