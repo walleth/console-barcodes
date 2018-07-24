@@ -12,13 +12,13 @@ fun printQR(content: String) {
 
     val writer = QRCodeWriter().encode(content, QR_CODE, 0, 0)
 
-    (0 until writer.height step 2).forEach { y ->
+    for (y in 0 until writer.height step 2) {
         println((0 until writer.width).map { x ->
-            val next = (y + 1 < writer.height) && writer.get(x, y + 1)
+            val nextRowPixel = (y + 1 < writer.height) && writer.get(x, y + 1)
             if (writer.get(x, y)) {
-                if (next) BLACK_ALL else BLACK_WHITE
+                if (nextRowPixel) BLACK_ALL else BLACK_WHITE
             } else {
-                if (next) WHITE_BLACK else WHITE_ALL
+                if (nextRowPixel) WHITE_BLACK else WHITE_ALL
             }
         }.joinToString(""))
     }
